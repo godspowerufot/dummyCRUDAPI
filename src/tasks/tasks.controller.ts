@@ -1,7 +1,9 @@
-import { Controller,Post ,Body, Get,Param,Patch, Delete} from '@nestjs/common';
+import { Controller,Post ,Body, Get,Param,Patch, Delete,UseInterceptors} from '@nestjs/common';
 import { TasksService } from './tasks.service';
+import { StatusCodeInterceptor } from 'src/interceptor/status-code/status-code.interceptor';
 
 @Controller('tasks')
+@UseInterceptors(StatusCodeInterceptor)
 export class TasksController {
     constructor(private  readonly Taskservice:TasksService){
 
@@ -32,7 +34,7 @@ this.Taskservice.updateTask(TaskId,title,description,Priority)
     }
     @Delete(':id')
     DeleteTask(@Param('id') TaskId: string){
-     return   this.Taskservice.DeleteTask(TaskId)
+     return   this.Taskservice.DeleteTassk(TaskId)
       
 
 }

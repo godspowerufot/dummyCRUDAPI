@@ -47,7 +47,7 @@ updateTask(TaskId: string, title: string, desc: string, priority: number) {
     return task;
 }
 
-DeleteTask(TaskId: string) {
+DeleteTassk(TaskId: string) {
     const task = this.findTask(TaskId)[1];
     //if it the task istrue remove the element 
     if (task) {
